@@ -14,7 +14,7 @@ namespace WzajemneWykluczanie
     public partial class Form1 : Form
     {
         Konto oKonto;
-        List<Thread> watki = new List<Thread>();
+        List<Thread> klienci = new List<Thread>();
 
         public Form1()
         {
@@ -25,7 +25,7 @@ namespace WzajemneWykluczanie
         {
             bStart.Enabled = false;
 
-            watki.Clear();
+            klienci.Clear();
 
             oKonto = new Konto(1000);
 
@@ -33,10 +33,10 @@ namespace WzajemneWykluczanie
             {
                 Thread oThread1 = new Thread(new ThreadStart(() => oKonto.Przelewy()));
                 oThread1.Name = string.Format("Klient {0}", i);
-                watki.Add(oThread1);
+                klienci.Add(oThread1);
             }
 
-            foreach(var t in watki)
+            foreach(var t in klienci)
             {
                 t.Start();
             }
@@ -52,15 +52,13 @@ namespace WzajemneWykluczanie
 
             int ileDziala = 0;
 
-            foreach (var w in watki)
+            foreach (var w in klienci)
             {
                 if (w.IsAlive)
                     ileDziala++;
             }
 
-            int ileWynikow = txtWyniki.Text.Split('\r').Count() - 1;
-
-            txtPracuje.Text = ileDziala.ToString();
+            txtIleDziala.Text = ileDziala.ToString();
 
             bStart.Enabled = (ileDziala == 0);
 

@@ -31,7 +31,7 @@ namespace WzajemneWykluczanie
             }
 
         }
-        bool Przelew(double suma)
+        bool Przelew(double kwota)
         {
              {
   
@@ -45,19 +45,19 @@ namespace WzajemneWykluczanie
                 else
                 {
                     {
-                        if (Stan >= suma)
+                        if (Stan >= kwota)
                         {                            
-                            string info = string.Format("Przed: {0}, Po: {1}", Stan, Stan - suma);
+                            string info = string.Format("Przed: {0}, Po: {1}", Stan, Stan - kwota);
                             DodajDoListy(info);
 
-                            Stan = Stan - suma;
+                            Stan = Stan - kwota;
 
                             return true;
 
                         }
                         else
                         {
-                            string info = string.Format("Przed: {0}, Po: {1}, Odrzucono !", Stan, Stan - suma);
+                            string info = string.Format("Przed: {0}, Po: {1}, Odrzucono !", Stan, Stan - kwota);
                             DodajDoListy(info);
 
                             return false;

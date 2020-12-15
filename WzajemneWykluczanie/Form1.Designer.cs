@@ -35,15 +35,16 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.txtStan = new System.Windows.Forms.TextBox();
-            this.txtPracuje = new System.Windows.Forms.TextBox();
+            this.txtIleDziala = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numIleWatkow)).BeginInit();
             this.SuspendLayout();
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(138, 12);
+            this.bStart.Location = new System.Drawing.Point(184, 15);
+            this.bStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bStart.Name = "bStart";
-            this.bStart.Size = new System.Drawing.Size(121, 23);
+            this.bStart.Size = new System.Drawing.Size(161, 28);
             this.bStart.TabIndex = 0;
             this.bStart.Text = "Rób przelewy";
             this.bStart.UseVisualStyleBackColor = true;
@@ -51,7 +52,8 @@
             // 
             // numIleWatkow
             // 
-            this.numIleWatkow.Location = new System.Drawing.Point(23, 12);
+            this.numIleWatkow.Location = new System.Drawing.Point(31, 15);
+            this.numIleWatkow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numIleWatkow.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -63,7 +65,7 @@
             0,
             0});
             this.numIleWatkow.Name = "numIleWatkow";
-            this.numIleWatkow.Size = new System.Drawing.Size(95, 20);
+            this.numIleWatkow.Size = new System.Drawing.Size(127, 22);
             this.numIleWatkow.TabIndex = 1;
             this.numIleWatkow.Value = new decimal(new int[] {
             100,
@@ -73,11 +75,12 @@
             // 
             // txtWyniki
             // 
-            this.txtWyniki.Location = new System.Drawing.Point(23, 88);
+            this.txtWyniki.Location = new System.Drawing.Point(31, 108);
+            this.txtWyniki.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtWyniki.Multiline = true;
             this.txtWyniki.Name = "txtWyniki";
             this.txtWyniki.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtWyniki.Size = new System.Drawing.Size(236, 161);
+            this.txtWyniki.Size = new System.Drawing.Size(313, 197);
             this.txtWyniki.TabIndex = 2;
             // 
             // timer1
@@ -89,39 +92,43 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 52);
+            this.label2.Location = new System.Drawing.Point(27, 64);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.Size = new System.Drawing.Size(41, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Stan:";
             // 
             // txtStan
             // 
-            this.txtStan.Location = new System.Drawing.Point(58, 50);
+            this.txtStan.Location = new System.Drawing.Point(77, 62);
+            this.txtStan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtStan.Name = "txtStan";
             this.txtStan.ReadOnly = true;
-            this.txtStan.Size = new System.Drawing.Size(60, 20);
+            this.txtStan.Size = new System.Drawing.Size(79, 22);
             this.txtStan.TabIndex = 6;
             // 
             // txtPracuje
             // 
-            this.txtPracuje.Location = new System.Drawing.Point(148, 52);
-            this.txtPracuje.Name = "txtPracuje";
-            this.txtPracuje.ReadOnly = true;
-            this.txtPracuje.Size = new System.Drawing.Size(100, 20);
-            this.txtPracuje.TabIndex = 7;
+            this.txtIleDziala.Location = new System.Drawing.Point(212, 64);
+            this.txtIleDziala.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIleDziala.Name = "txtPracuje";
+            this.txtIleDziala.ReadOnly = true;
+            this.txtIleDziala.Size = new System.Drawing.Size(132, 22);
+            this.txtIleDziala.TabIndex = 7;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.txtPracuje);
+            this.ClientSize = new System.Drawing.Size(379, 321);
+            this.Controls.Add(this.txtIleDziala);
             this.Controls.Add(this.txtStan);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtWyniki);
             this.Controls.Add(this.numIleWatkow);
             this.Controls.Add(this.bStart);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Konto";
             ((System.ComponentModel.ISupportInitialize)(this.numIleWatkow)).EndInit();
@@ -138,7 +145,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtStan;
-        private System.Windows.Forms.TextBox txtPracuje;
+        private System.Windows.Forms.TextBox txtIleDziala;
     }
 }
 
