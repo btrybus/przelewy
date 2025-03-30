@@ -31,8 +31,8 @@ namespace WzajemneWykluczanie
 
             for (int i = 1; i <= numIleWatkow.Value; i++)
             {
-                Thread oThread1 = new Thread(new ThreadStart(() => oKonto.Przelewy()));
-                oThread1.Name = string.Format("Klient {0}", i);
+                Thread oThread1 = new Thread(new ThreadStart(() => oKonto.RobWieleWyplat()));
+                oThread1.Name = $"Klient {i}";
                 klienci.Add(oThread1);
             }
 
@@ -46,7 +46,7 @@ namespace WzajemneWykluczanie
         {
             if (oKonto != null)
             {
-                txtWyniki.Text = oKonto.ListaPrzelewow;
+                txtWyniki.Text = oKonto.HistoriaOperacji;
                 txtStan.Text = oKonto.Stan.ToString();
             }
 

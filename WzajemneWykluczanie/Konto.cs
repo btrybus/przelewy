@@ -9,36 +9,34 @@ namespace WzajemneWykluczanie
 {
     class Konto
     {
+        public double Stan { get; private set; }
 
-        double stan;
-        string listaPrzelewow = string.Empty;
-
-        public double Stan { get { return stan; } private set { stan = value; } }
-        public string ListaPrzelewow { get { return listaPrzelewow; } }
+        public string HistoriaOperacji { get; private set; } = string.Empty;
 
         public Konto(double stan)
         {
-            this.stan = stan;
+            this.Stan = stan;
         }
 
-        public void Przelewy()
+        public void RobWieleWyplat()
         {
             Random r = new Random();
 
             for (int i = 0; i < 100; i++)
             {
-                Przelew(r.Next(1, 10));
+                Wyplata(r.Next(1, 10));
             }
 
         }
-        bool Przelew(double kwota)
+
+
+        public bool Wyplata(double kwota)
         {
-             {
+           {
   
                 if (Stan < 0.0)
                 {
-                    string info = string.Format("Przed: {0}, Debet !", Stan);
-                    DodajDoListy(info);
+                    DodajDoHistorii($"Przed: {Stan}, Debet, Odrzucono !");
 
                     return false;
                 }
@@ -47,8 +45,8 @@ namespace WzajemneWykluczanie
                     {
                         if (Stan >= kwota)
                         {                            
-                            string info = string.Format("Przed: {0}, Po: {1}", Stan, Stan - kwota);
-                            DodajDoListy(info);
+                            string info = $"Przed: {Stan}, Po: {Stan-kwota}, Sukces !";
+                            DodajDoHistorii(info);
 
                             Stan = Stan - kwota;
 
@@ -56,9 +54,8 @@ namespace WzajemneWykluczanie
 
                         }
                         else
-                        {
-                            string info = string.Format("Przed: {0}, Po: {1}, Odrzucono !", Stan, Stan - kwota);
-                            DodajDoListy(info);
+                        {  
+                            DodajDoHistorii($"Przed: {Stan}, Po: {Stan - kwota}, Odrzucono !");
 
                             return false;
                         }
@@ -67,19 +64,20 @@ namespace WzajemneWykluczanie
 
             }
 
+
         }
 
-        void DodajDoListy(string info)
+        private void DodajDoHistorii(string info)
         {
-            StringBuilder sb = new StringBuilder(listaPrzelewow);
-            int ktoryWpis = listaPrzelewow.Split('\r').Count();
+            StringBuilder sb = new StringBuilder(HistoriaOperacji);
+            int ktoryWpis = HistoriaOperacji.Split('\r').Count();
             sb.Append(ktoryWpis);
             sb.Append(" ");
             sb.Append(Thread.CurrentThread.Name);
             sb.Append(" ");
             sb.Append(info);
             sb.Append("\r\n");
-            listaPrzelewow = sb.ToString();
+            HistoriaOperacji = sb.ToString();
         }
     }
 }
